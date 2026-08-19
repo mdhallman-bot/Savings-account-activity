@@ -13,6 +13,7 @@
   h1 { font-family: Arial, sans-serif; font-size: 1.6rem; margin-bottom: 4px; color: var(--accent); }
   h2 { font-family: Arial, sans-serif; font-size: 1.15rem; margin-top: 2.2em; border-bottom: 2px solid var(--gold); padding-bottom: 4px; color: var(--accent); }
   h3 { font-family: Arial, sans-serif; font-size: 1rem; margin: 1em 0 4px 0; }
+  .section-tag { font-family: Arial, sans-serif; font-size: 0.78rem; font-weight: bold; color: var(--gold); letter-spacing: 0.5px; margin-top: 2.2em; }
   .subtitle { color: #555; font-family: Arial, sans-serif; font-size: 0.95rem; margin-bottom: 1.2em; }
   .rubric-note { background: var(--panel); border-left: 4px solid var(--accent); padding: 12px 16px; font-family: Arial, sans-serif; font-size: 0.88rem; }
   .id-bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; background: var(--panel); padding: 12px 16px; margin: 16px 0; border-radius: 4px; }
@@ -21,24 +22,24 @@
   button:hover { background: var(--accent); color: #fff; }
   button.primary { background: var(--accent); color: #fff; }
   button:disabled { opacity: 0.4; cursor: not-allowed; }
+  button.small { padding: 4px 9px; font-size: 12px; }
   .highlight-btn.green { border-color: var(--green-strong); color: var(--green-strong); }
   .highlight-btn.green:hover { background: var(--green-strong); color: #fff; }
   .highlight-btn.red { border-color: var(--red-strong); color: var(--red-strong); }
   .highlight-btn.red:hover { background: var(--red-strong); color: #fff; }
 
-  .source-text { background: var(--paper); padding: 14px 18px; border-left: 4px solid var(--gold); margin: 10px 0; font-size: 1.02rem; }
+  .source-text { background: var(--paper); padding: 12px 16px; border-left: 4px solid var(--gold); margin: 8px 0; font-size: 0.98rem; }
   .source-text mark { background: transparent; }
-  .source-text table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 0.92rem; background: #fff; }
-  .source-text th { background: var(--accent); color: #fff; text-align: left; padding: 8px 10px; }
-  .source-text td { padding: 7px 10px; border-bottom: 1px solid #ddd; }
+  .source-text table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 0.86rem; background: #fff; }
+  .source-text th { background: var(--accent); color: #fff; text-align: left; padding: 6px 8px; }
+  .source-text td { padding: 5px 8px; border-bottom: 1px solid #ddd; }
   .source-text tr:nth-child(even) td { background: #f3f0e6; }
   .doc-meta { font-family: Arial, sans-serif; font-size: 0.85rem; color: #555; margin-bottom: 6px; }
 
   .guided-block { background: #fff; border: 1px solid #ddd; border-radius: 6px; padding: 14px 16px; margin: 8px 0 20px 0; }
   .guided-question { font-family: Arial, sans-serif; font-size: 0.95rem; margin-bottom: 8px; }
 
-  .notes-box, textarea, input[type=number] { width: 100%; min-height: 70px; font-family: inherit; font-size: 14.5px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
-  input[type=number] { min-height: auto; width: auto; max-width: 180px; }
+  .notes-box, textarea, input[type=number], input[type=text] { width: 100%; min-height: 70px; font-family: inherit; font-size: 14.5px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
   textarea.big { min-height: 160px; }
   textarea.small { min-height: 55px; }
 
@@ -71,30 +72,33 @@
   .mock-card .range { font-weight: bold; color: var(--accent); margin-bottom: 6px; }
   .mock-card .improve { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #ccc; font-size: 0.85rem; }
 
-  .calc-block { background: var(--panel); border-radius: 6px; padding: 14px 16px; margin: 10px 0; }
-  .calc-result.correct { color: var(--green-strong); font-weight: bold; }
-  .calc-result.incorrect { color: var(--red-strong); font-weight: bold; }
-
   .explainer-box { background: var(--paper); border: 1px solid #e0dcc8; border-radius: 6px; padding: 16px 18px; margin: 12px 0; font-family: Arial, sans-serif; font-size: 0.92rem; }
-  .explainer-box table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; background: #fff; }
-  .explainer-box th { background: var(--accent); color: #fff; padding: 6px 10px; text-align: left; }
-  .explainer-box td { padding: 6px 10px; border-bottom: 1px solid #ddd; }
+  .explainer-box table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; background: #fff; }
+  .explainer-box th { background: var(--accent); color: #fff; padding: 6px 8px; text-align: left; }
+  .explainer-box td { padding: 5px 8px; border-bottom: 1px solid #ddd; }
 
-  .steps-table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 0.88rem; margin: 10px 0; }
-  .steps-table th { background: var(--accent); color: #fff; padding: 6px 8px; text-align: left; }
-  .steps-table td { padding: 6px 8px; border-bottom: 1px solid #ddd; }
-  .steps-table input[type=number] { max-width: 130px; }
-  .step-status { font-weight: bold; }
-  .step-status.ok { color: var(--green-strong); }
-  .step-status.no { color: var(--red-strong); }
-  .step-status.pending { color: #999; }
+  /* Ranking cards */
+  .rank-list { display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+  .rank-card { border: 1px solid #ccc; border-radius: 8px; background: #fff; overflow: hidden; }
+  .rank-card.dragging { opacity: 0.4; }
+  .rank-card-head { display: flex; align-items: center; gap: 10px; background: var(--panel); padding: 8px 12px; font-family: Arial, sans-serif; }
+  .rank-handle { cursor: grab; font-weight: bold; color: var(--accent); user-select: none; padding: 2px 4px; }
+  .rank-handle:active { cursor: grabbing; }
+  .rank-pos-badge { margin-left: auto; background: var(--accent); color: #fff; border-radius: 12px; padding: 2px 10px; font-size: 0.78rem; font-weight: bold; }
+  .rank-move-btns button { padding: 2px 8px; font-size: 12px; margin: 0 2px; }
+  .rank-card .source-text { margin: 0; border-radius: 0; border-left: none; border-top: 4px solid var(--gold); }
 
+  /* Matching rows (reused for account-naming and vocabulary) */
   .quiz-row { display: flex; align-items: center; gap: 10px; font-family: Arial, sans-serif; font-size: 0.9rem; margin: 6px 0; padding: 8px 10px; border-radius: 4px; background: #fff; border: 1px solid #eee; }
-  .quiz-row label.term { min-width: 210px; font-weight: bold; }
+  .quiz-row label.term { min-width: 190px; font-weight: bold; }
   .quiz-row select { flex: 1; padding: 6px; font-family: Arial, sans-serif; font-size: 0.88rem; }
   .quiz-row.correct { background: #e4f4e6; }
   .quiz-row.incorrect { background: #fdece9; }
-  #quiz-score { font-family: Arial, sans-serif; font-weight: bold; margin-top: 10px; }
+  .quiz-score { font-family: Arial, sans-serif; font-weight: bold; margin-top: 10px; }
+  .retry-note { font-family: Arial, sans-serif; font-size: 0.82rem; color: #555; font-style: italic; margin: 4px 0 10px 0; }
+
+  .calc-link-box { background: var(--panel); border-left: 4px solid var(--accent); padding: 12px 16px; margin: 12px 0; font-family: Arial, sans-serif; font-size: 0.9rem; }
+  .calc-link-box a { color: var(--accent); font-weight: bold; }
 
   @media print {
     button, .id-bar { display: none !important; }
@@ -111,15 +115,14 @@
 <body>
 
 <h1>Choosing the Right Savings Account</h1>
-<div class="subtitle">Unit 2: Banking — Day 2, Savings Accounts (SQ1) · AI-Coached Practice</div>
+<div class="subtitle">Unit 2: Banking — Day 2, Savings Accounts · AI-Coached Practice</div>
 
 <div class="rubric-note">
-  <strong>What this feeds into:</strong> This is a practice check, not a live grade. Completion requires:
-  writing both reflections, using enough vocabulary, AND clicking "Check my answer" (or "Check my ... answer")
-  <strong>at least once on every guided question and every calculation</strong> — even if you're confident in
-  your answer, the AI check is part of completion. After you submit, you'll see a practice feedback preview
-  using the same Beginning / Developing / Proficient / Advanced language as your class rubric — that preview
-  is for you to learn from, not your official grade.
+  <strong>How this lines up with class:</strong> This tool is broken into the same sections as today's
+  slides, in the same order. When your teacher says "open the tool," you'll be in the matching section.
+  Completion requires: both reflections, using enough vocabulary, submitting your ranking, getting the
+  account-naming match fully correct at least once, AND clicking "Check my answer" at least once on every
+  guided question — even if you're confident, the AI check is part of completion.
 </div>
 
 <div class="id-bar">
@@ -128,74 +131,173 @@
   <button onclick="loadState()">Load my saved work</button>
   <span id="load-status" class="save-indicator"></span>
 </div>
-<div class="try-first-note" style="margin-top:-8px;">Use your first and last name, spelled the same way every time — this is how your work is found and saved.</div>
+<div class="try-first-note" style="margin-top:-8px;">Use your first and last name, spelled the same way every time — this is how your work is saved.</div>
 
 <!-- ============ OPENING WRITE ============ -->
 <h2>Before You Start</h2>
 <p style="font-family:Arial, sans-serif; font-size:0.9rem; color:#555;">
   <strong>Quick scenario:</strong> if you had $500 you didn't need for at least a year, would you rather
-  have it be very easy to access, or earn the highest possible interest rate? Why? This is the same
-  trade-off every savings account asks you to make.
+  have it be very easy to access, or earn the highest possible interest rate? Why?
 </p>
 <textarea id="opening-write" placeholder="Type your initial thoughts here..."></textarea>
 <div class="save-indicator" id="opening-save-status"></div>
 
-<!-- ============ DOCUMENT 1: ACCOUNT COMPARISON CHART ============ -->
-<h2>Savings Account Comparison Chart</h2>
-<div class="doc-meta">The same four account types from class, side by side.</div>
-<p style="font-family:Arial, sans-serif; font-size:0.88rem;">Select any text, then click a color: <strong>green</strong> for a feature that gives you more access to your money, <strong>red</strong> for a feature that trades access away for a higher interest rate.</p>
+<!-- ============ SECTION 1: RANK & NAME THE ACCOUNTS ============ -->
+<div class="section-tag">SECTION 1 &middot; MATCHES: "OPEN THE HTML — RANK &amp; NAME THE ACCOUNTS"</div>
+<h2>Rank the Four Mystery Accounts</h2>
+<p style="font-family:Arial, sans-serif; font-size:0.9rem;">Drag each box by its handle (or use the ▲▼ buttons) to rank them from <strong>most accessible</strong> (top) to <strong>highest rate / most locked away</strong> (bottom). Select any text inside a box and click a highlight color first, if it helps you think.</p>
 <button class="highlight-btn green" onclick="applyHighlight('green')">Highlight: More Access</button>
 <button class="highlight-btn red" onclick="applyHighlight('red')">Highlight: Higher Rate / Less Access</button>
 <button onclick="applyHighlight(null)">Clear highlight</button>
 
-<div class="source-text" id="doc-1" contenteditable="true">
-<table>
-  <thead>
-    <tr><th>Account Type</th><th>Interest Rate</th><th>Minimum Balance</th><th>Access to Funds</th><th>Physical Branch</th><th>FDIC / NCUA Insured</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Traditional / Regular Savings</td><td>Low (0.01–0.5%)</td><td>Low or none</td><td>Anytime, in person or ATM</td><td>Yes</td><td>Yes</td></tr>
-    <tr><td>Online Savings</td><td>Higher (4–5%)</td><td>Low or none</td><td>Anytime, app or online only</td><td>No</td><td>Yes</td></tr>
-    <tr><td>Money Market Account</td><td>Higher, often tiered by balance</td><td>Higher, often $1,000+</td><td>Some check-writing, limited withdrawals/month</td><td>Sometimes</td><td>Yes</td></tr>
-    <tr><td>Certificate of Deposit (CD)</td><td>Highest (4–5%+)</td><td>A set deposit amount, fixed at opening</td><td>Locked for a fixed term — penalty for early withdrawal</td><td>Sometimes</td><td>Yes</td></tr>
-  </tbody>
-</table>
+<div class="rank-list" id="rank-list">
+  <div class="rank-card" id="rank-card-A">
+    <div class="rank-card-head">
+      <span class="rank-handle" draggable="true">&#8942;&#8942; Account A</span>
+      <span class="rank-move-btns">
+        <button type="button" class="small" onclick="moveCard('A',-1)" aria-label="Move Account A up">&uarr;</button>
+        <button type="button" class="small" onclick="moveCard('A',1)" aria-label="Move Account A down">&darr;</button>
+      </span>
+      <span class="rank-pos-badge" id="pos-A">Position 1</span>
+    </div>
+    <div class="source-text" id="rank-body-A" contenteditable="true">
+      <table>
+        <tr><td><strong>Interest rate</strong></td><td>Low (0.01–0.5%)</td></tr>
+        <tr><td><strong>Minimum balance</strong></td><td>Low or none</td></tr>
+        <tr><td><strong>Access to funds</strong></td><td>Anytime, in person or ATM</td></tr>
+        <tr><td><strong>Physical branch?</strong></td><td>Yes</td></tr>
+        <tr><td><strong>FDIC/NCUA insured?</strong></td><td>Yes</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="rank-card" id="rank-card-B">
+    <div class="rank-card-head">
+      <span class="rank-handle" draggable="true">&#8942;&#8942; Account B</span>
+      <span class="rank-move-btns">
+        <button type="button" class="small" onclick="moveCard('B',-1)" aria-label="Move Account B up">&uarr;</button>
+        <button type="button" class="small" onclick="moveCard('B',1)" aria-label="Move Account B down">&darr;</button>
+      </span>
+      <span class="rank-pos-badge" id="pos-B">Position 2</span>
+    </div>
+    <div class="source-text" id="rank-body-B" contenteditable="true">
+      <table>
+        <tr><td><strong>Interest rate</strong></td><td>Higher (4–5%)</td></tr>
+        <tr><td><strong>Minimum balance</strong></td><td>Low or none</td></tr>
+        <tr><td><strong>Access to funds</strong></td><td>Anytime, app/online only</td></tr>
+        <tr><td><strong>Physical branch?</strong></td><td>No — online only</td></tr>
+        <tr><td><strong>FDIC/NCUA insured?</strong></td><td>Yes</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="rank-card" id="rank-card-C">
+    <div class="rank-card-head">
+      <span class="rank-handle" draggable="true">&#8942;&#8942; Account C</span>
+      <span class="rank-move-btns">
+        <button type="button" class="small" onclick="moveCard('C',-1)" aria-label="Move Account C up">&uarr;</button>
+        <button type="button" class="small" onclick="moveCard('C',1)" aria-label="Move Account C down">&darr;</button>
+      </span>
+      <span class="rank-pos-badge" id="pos-C">Position 3</span>
+    </div>
+    <div class="source-text" id="rank-body-C" contenteditable="true">
+      <table>
+        <tr><td><strong>Interest rate</strong></td><td>Higher, tiered by balance</td></tr>
+        <tr><td><strong>Minimum balance</strong></td><td>Higher, often $1,000+</td></tr>
+        <tr><td><strong>Access to funds</strong></td><td>Some check-writing, limited withdrawals/month</td></tr>
+        <tr><td><strong>Physical branch?</strong></td><td>Sometimes</td></tr>
+        <tr><td><strong>FDIC/NCUA insured?</strong></td><td>Yes</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="rank-card" id="rank-card-D">
+    <div class="rank-card-head">
+      <span class="rank-handle" draggable="true">&#8942;&#8942; Account D</span>
+      <span class="rank-move-btns">
+        <button type="button" class="small" onclick="moveCard('D',-1)" aria-label="Move Account D up">&uarr;</button>
+        <button type="button" class="small" onclick="moveCard('D',1)" aria-label="Move Account D down">&darr;</button>
+      </span>
+      <span class="rank-pos-badge" id="pos-D">Position 4</span>
+    </div>
+    <div class="source-text" id="rank-body-D" contenteditable="true">
+      <table>
+        <tr><td><strong>Interest rate</strong></td><td>Highest (4–5%+)</td></tr>
+        <tr><td><strong>Minimum balance</strong></td><td>A set deposit amount, fixed at opening</td></tr>
+        <tr><td><strong>Access to funds</strong></td><td>Locked for a fixed term — penalty for early withdrawal</td></tr>
+        <tr><td><strong>Physical branch?</strong></td><td>Sometimes</td></tr>
+        <tr><td><strong>FDIC/NCUA insured?</strong></td><td>Yes</td></tr>
+      </table>
+    </div>
+  </div>
 </div>
+<button class="primary" onclick="submitRanking()">Lock in my ranking</button>
+<span class="check-count zero" id="rank-status">Not yet submitted — required for completion</span>
 
 <div class="guided-block">
-  <div class="guided-question">Q1. Which account type would be the best fit for someone who wants to keep their money completely accessible and doesn't care much about maximizing interest? Point to specific features from the chart that support your answer.</div>
+  <div class="guided-question">Q1. Why did you rank the accounts in this order? What trade-off were you weighing between position 1 and position 4?</div>
   <textarea class="small" id="answer-q1" placeholder="Your answer..."></textarea>
   <div class="try-first-note">Try your own answer first — the check button unlocks after a few sentences.</div>
-  <button id="checkbtn-q1" onclick="checkGuided('q1', 'Account Comparison Chart', 'doc-1', 'Which account type would be the best fit for someone who wants to keep their money completely accessible and does not care about maximizing interest?')" disabled>Check my answer</button><span class="check-count zero" id="count-q1">Checked 0 times — required for completion</span>
+  <button id="checkbtn-q1" onclick="checkGuided('q1', 'Account Ranking', null, 'Why did the student rank the accounts in this order, and what trade-off (access vs. rate) are they weighing between the most accessible and least accessible positions?')" disabled>Check my answer</button><span class="check-count zero" id="count-q1">Checked 0 times — required for completion</span>
   <div class="helper-panel" id="feedback-q1" style="display:none;"></div>
 </div>
 
-<!-- ============ SIMPLE VS COMPOUND EXPLAINER ============ -->
-<h2>Simple Interest vs. Compound Interest</h2>
-<div class="explainer-box" id="explainer">
-  <p><strong>Simple interest</strong> is calculated only on the original principal, every single period — the amount of interest earned never changes, even as time passes. This shows up most often in certain loans (some auto loans, for example) and some bonds.</p>
-  <p><strong>Compound interest</strong> is calculated on the principal PLUS any interest already earned — so the amount of interest earned grows every period. This is how virtually every deposit account works: <strong>all four account types you just compared — regular savings, online savings, money market, and CDs — pay compound interest</strong>, usually advertised as an APY (Annual Percentage Yield).</p>
-  <p>Here's the gap in action — $500 at 5% for 3 years, calculated both ways:</p>
+<h3>Now Name Them</h3>
+<p style="font-family:Arial, sans-serif; font-size:0.9rem;">Match each account to its real name. You can change your answers and check again as many times as you like — getting all four correct at least once is what counts toward completion.</p>
+<div id="matching-container"></div>
+<button onclick="checkMatching()">Check my matches</button>
+<div class="quiz-score" id="matching-score"></div>
+
+<!-- ============ SECTION 2: UNDERSTANDING COMPOUND INTEREST ============ -->
+<div class="section-tag">SECTION 2 &middot; MATCHES: "OPEN THE HTML — REFLECT ON COMPOUNDING"</div>
+<h2>Understanding Compound Interest</h2>
+<div class="explainer-box">
+  <p style="margin-top:0;">To actually earn compound interest, your money needs to sit in an account that compounds — meaning interest gets calculated on your whole growing balance, not just what you originally put in. All four account types you just ranked do this.</p>
+  <p style="margin-bottom:0;">For money you won't touch for many years, some people also use retirement accounts (like a 401(k) or IRA) or diversified investments like index funds. These aren't FDIC insured and carry more risk than a savings account, but they've historically offered higher average returns over long stretches of time — which is exactly why starting early matters so much.</p>
+</div>
+
+<h3>$100 a Month, Starting at Age 20, 8% Average Return</h3>
+<div class="explainer-box">
   <table>
-    <thead><tr><th>Year</th><th>Simple Interest Total</th><th>Compound Interest Total</th></tr></thead>
+    <thead><tr><th>Age</th><th>Years Saving</th><th>Total Contributed</th><th>Compound Total</th><th>Simple Total</th><th>Extra From Compounding</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>$525.00</td><td>$525.00</td></tr>
-      <tr><td>2</td><td>$550.00</td><td>$551.25</td></tr>
-      <tr><td>3</td><td>$575.00</td><td>$578.81</td></tr>
+      <tr><td>21</td><td>1</td><td>$1,200</td><td>$1,245</td><td>$1,244</td><td>$1</td></tr>
+      <tr><td>22</td><td>2</td><td>$2,400</td><td>$2,593</td><td>$2,584</td><td>$9</td></tr>
+      <tr><td>25</td><td>5</td><td>$6,000</td><td>$7,348</td><td>$7,180</td><td>$168</td></tr>
+      <tr><td>30</td><td>10</td><td>$12,000</td><td>$18,295</td><td>$16,760</td><td>$1,535</td></tr>
+      <tr><td>35</td><td>15</td><td>$18,000</td><td>$34,604</td><td>$28,740</td><td>$5,864</td></tr>
+      <tr><td>40</td><td>20</td><td>$24,000</td><td>$58,902</td><td>$43,120</td><td>$15,782</td></tr>
+      <tr><td>50</td><td>30</td><td>$36,000</td><td>$149,036</td><td>$79,080</td><td>$69,956</td></tr>
+      <tr><td>60</td><td>40</td><td>$48,000</td><td>$349,101</td><td>$124,640</td><td>$224,461</td></tr>
+      <tr><td>70</td><td>50</td><td>$60,000</td><td>$793,173</td><td>$179,800</td><td>$613,373</td></tr>
     </tbody>
   </table>
-  <p style="margin-bottom:0;">Same rate, same time, same starting amount — but compound interest pulls ahead every year after the first, because it's earning interest on interest.</p>
+  <p style="margin-bottom:0; margin-top:10px;">Same $100 a month, same 8% rate, the whole time. "Simple Total" assumes interest is only ever calculated on the amount you actually deposited, never on interest already earned.</p>
 </div>
 
 <div class="guided-block">
-  <div class="guided-question">Q2. In your own words: why does compound interest produce a higher total than simple interest, even at the exact same rate and time?</div>
+  <div class="guided-question">Q2. Look at the chart. What do you notice about the gap between the Compound Total and Simple Total as the years go on?</div>
   <textarea class="small" id="answer-q2" placeholder="Your answer..."></textarea>
   <div class="try-first-note">Try your own answer first — the check button unlocks after a few sentences.</div>
-  <button id="checkbtn-q2" onclick="checkGuided('q2', 'Simple vs. Compound Interest Explainer', 'explainer', 'Why does compound interest produce a higher total than simple interest at the same rate and time?')" disabled>Check my answer</button><span class="check-count zero" id="count-q2">Checked 0 times — required for completion</span>
+  <button id="checkbtn-q2" onclick="checkGuided('q2', 'Compound Growth Chart', null, 'What does the student notice about how the gap between the compound total and simple total changes as the years go on?')" disabled>Check my answer</button><span class="check-count zero" id="count-q2">Checked 0 times — required for completion</span>
   <div class="helper-panel" id="feedback-q2" style="display:none;"></div>
 </div>
 
-<!-- ============ DOCUMENT 2: JASMINE'S SCENARIO ============ -->
+<div class="guided-block">
+  <div class="guided-question">Q3. Why is compound interest so powerful, especially for someone who starts saving young? Use at least one specific number from the chart in your answer.</div>
+  <textarea class="small" id="answer-q3" placeholder="Your answer..."></textarea>
+  <div class="try-first-note">Try your own answer first — the check button unlocks after a few sentences.</div>
+  <button id="checkbtn-q3" onclick="checkGuided('q3', 'Compound Growth Chart', null, 'Why is compound interest so powerful for someone who starts saving young, and does the student reference a specific number from the chart?')" disabled>Check my answer</button><span class="check-count zero" id="count-q3">Checked 0 times — required for completion</span>
+  <div class="helper-panel" id="feedback-q3" style="display:none;"></div>
+</div>
+
+<div class="guided-block">
+  <div class="guided-question">Q4. Based on what you've learned, name at least one real account type where you could actually put money to earn compound interest, and explain why it works that way.</div>
+  <textarea class="small" id="answer-q4" placeholder="Your answer..."></textarea>
+  <div class="try-first-note">Try your own answer first — the check button unlocks after a few sentences.</div>
+  <button id="checkbtn-q4" onclick="checkGuided('q4', 'Compound Growth Chart', null, 'Does the student name a real account type that pays compound interest and explain why it works that way?')" disabled>Check my answer</button><span class="check-count zero" id="count-q4">Checked 0 times — required for completion</span>
+  <div class="helper-panel" id="feedback-q4" style="display:none;"></div>
+</div>
+
+<!-- ============ SECTION 3: JASMINE'S DECISION ============ -->
+<div class="section-tag">SECTION 3</div>
 <h2>Jasmine's Decision</h2>
 <div class="doc-meta">A consumer scenario where the right account isn't obvious.</div>
 <div class="source-text" id="doc-2" contenteditable="true">
@@ -206,88 +308,70 @@ then needing it early.
 </div>
 
 <div class="guided-block">
-  <div class="guided-question">Q3. What makes Jasmine's situation harder to decide than a scenario with a clear timeline? What is she risking either way?</div>
-  <textarea class="small" id="answer-q3" placeholder="Your answer..."></textarea>
+  <div class="guided-question">Q5. What makes Jasmine's situation harder to decide than a scenario with a clear timeline? What is she risking either way?</div>
+  <textarea class="small" id="answer-q5" placeholder="Your answer..."></textarea>
   <div class="try-first-note">Try your own answer first — the check button unlocks after a few sentences.</div>
-  <button id="checkbtn-q3" onclick="checkGuided('q3', 'Jasmine Scenario', 'doc-2', 'What makes this decision harder than a scenario with a clear timeline? What is being risked either way?')" disabled>Check my answer</button><span class="check-count zero" id="count-q3">Checked 0 times — required for completion</span>
-  <div class="helper-panel" id="feedback-q3" style="display:none;"></div>
+  <button id="checkbtn-q5" onclick="checkGuided('q5', 'Jasmine Scenario', 'doc-2', 'What makes this decision harder than a scenario with a clear timeline? What is being risked either way?')" disabled>Check my answer</button><span class="check-count zero" id="count-q5">Checked 0 times — required for completion</span>
+  <div class="helper-panel" id="feedback-q5" style="display:none;"></div>
 </div>
 
-<!-- ============ ELABORATED CALCULATION ACTIVITY ============ -->
-<h2>Project Jasmine's Growth — Step by Step</h2>
-<div class="calc-block" id="calc-block">
-  <p style="font-family:Arial, sans-serif; font-size:0.9rem;">Suppose Jasmine puts her $1,000 into an Online Savings account earning 4% APY, compounded annually, and leaves it completely untouched for 3 years. Don't just look up a final number — work through it one year at a time. Each year, interest is earned on that year's <em>starting</em> balance (which includes all interest earned so far).</p>
-
-  <div class="explainer-box" style="margin-top:12px;">
-    <h3 style="margin-top:0;">How to Calculate It — Worked Example</h3>
-    <p style="margin-bottom:6px;"><strong>Each year, repeat these 3 steps:</strong></p>
-    <ol style="margin-top:0; padding-left: 20px;">
-      <li>Multiply that year's <strong>starting balance</strong> by the interest rate. This gives you that year's interest.</li>
-      <li>Add the interest to the starting balance. This gives you the <strong>new ending balance</strong>.</li>
-      <li>Next year, that ending balance becomes the new starting balance — go back to step 1.</li>
-    </ol>
-    <p style="margin-bottom:6px;"><strong>Example (different numbers than Jasmine's, so you can't just copy it):</strong> $200 at 10% for 2 years.</p>
-    <table>
-      <thead><tr><th>Year</th><th>Starting Balance</th><th>Step 1: Interest</th><th>Step 2: Ending Balance</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>$200.00</td><td>$200.00 &times; 0.10 = $20.00</td><td>$200.00 + $20.00 = <strong>$220.00</strong></td></tr>
-        <tr><td>2</td><td>$220.00 (last year's ending balance)</td><td>$220.00 &times; 0.10 = $22.00</td><td>$220.00 + $22.00 = <strong>$242.00</strong></td></tr>
-      </tbody>
-    </table>
-    <p style="margin-bottom:0;">Notice Year 2's interest ($22.00) is bigger than Year 1's ($20.00) — because it was calculated on $220, not the original $200. That's the whole idea of compound interest in three steps. Now use this exact method on Jasmine's numbers below: $1,000 to start, 4% each year.</p>
-  </div>
-
-  <table class="steps-table" style="margin-top:16px;">
-    <thead><tr><th>Year</th><th>Starting Balance</th><th>Your Ending Balance ($)</th><th>Status</th></tr></thead>
+<h3>Jasmine's $1,000 Over 4 Years — Online Savings (Compound) vs. Simple Interest</h3>
+<div class="explainer-box">
+  <table>
+    <thead><tr><th>Year</th><th>Compound (4% APY)</th><th>Simple (4%)</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>$1,000.00</td><td><input type="number" id="step-year1" step="0.01" placeholder="0.00"></td><td class="step-status pending" id="status-year1">—</td></tr>
-      <tr><td>2</td><td>Your Year 1 answer</td><td><input type="number" id="step-year2" step="0.01" placeholder="0.00"></td><td class="step-status pending" id="status-year2">—</td></tr>
-      <tr><td>3</td><td>Your Year 2 answer</td><td><input type="number" id="step-year3" step="0.01" placeholder="0.00"></td><td class="step-status pending" id="status-year3">—</td></tr>
+      <tr><td>1</td><td>$1,040.00</td><td>$1,040.00</td></tr>
+      <tr><td>2</td><td>$1,081.60</td><td>$1,080.00</td></tr>
+      <tr><td>3</td><td>$1,124.86</td><td>$1,120.00</td></tr>
+      <tr><td>4</td><td>$1,169.86</td><td>$1,160.00</td></tr>
     </tbody>
   </table>
-  <button onclick="checkSteps()">Check my step-by-step work</button>
-  <div class="try-first-note">This step check is instant and doesn't use up your AI-coached attempts below — use it to catch mistakes early.</div>
-
-  <h3 style="margin-top:18px;">Final Compound Total</h3>
-  <label for="calc-work" style="font-family:Arial, sans-serif; font-size:0.85rem;">Show your work (optional but recommended):</label>
-  <textarea class="small" id="calc-work" placeholder="Year 1: ... Year 2: ... Year 3: ..."></textarea>
-  <label for="calc-compound-answer" style="font-family:Arial, sans-serif; font-size:0.85rem; display:block; margin-top:8px;">Her ending balance after 3 years, with COMPOUND interest ($):</label>
-  <input type="number" id="calc-compound-answer" step="0.01" placeholder="0.00">
-  <div class="try-first-note">Enter a value first — the check button unlocks once you do.</div>
-  <button id="checkbtn-calc-compound" onclick="checkCalc('compound')" disabled>Check my compound answer</button><span class="check-count zero" id="count-calc-compound">Checked 0 times — required for completion</span>
-  <div class="helper-panel" id="feedback-calc-compound" style="display:none;"></div>
-
-  <h3 style="margin-top:18px;">Now Compare: Simple Interest</h3>
-  <p style="font-family:Arial, sans-serif; font-size:0.9rem;">If Jasmine's $1,000 instead earned <strong>simple</strong> interest at the same 4% rate for the same 3 years — interest calculated only on the original $1,000, every year — what would her ending balance be?</p>
-  <label for="calc-simple-answer" style="font-family:Arial, sans-serif; font-size:0.85rem;">Her ending balance after 3 years, with SIMPLE interest ($):</label>
-  <input type="number" id="calc-simple-answer" step="0.01" placeholder="0.00">
-  <div class="try-first-note">Enter a value first — the check button unlocks once you do.</div>
-  <button id="checkbtn-calc-simple" onclick="checkCalc('simple')" disabled>Check my simple-interest answer</button><span class="check-count zero" id="count-calc-simple">Checked 0 times — required for completion</span>
-  <div class="helper-panel" id="feedback-calc-simple" style="display:none;"></div>
 </div>
 
 <div class="guided-block">
-  <div class="guided-question">Q4. Using your two answers above: how much more did Jasmine earn with compound interest than she would have with simple interest? Why does that gap exist, even though the rate and time were identical?</div>
-  <textarea class="small" id="answer-q4" placeholder="Your answer..."></textarea>
+  <div class="guided-question">Q6 (multi-part). If Jasmine chooses the Online Savings account (compound interest) instead of an account that only pays simple interest: what does she gain by year 4? And what would she be giving up if she suddenly needed the money back in month 7 — before either account had grown much at all?</div>
+  <textarea class="small" id="answer-q6" placeholder="Your answer..."></textarea>
   <div class="try-first-note">Try your own answer first — the check button unlocks after a few sentences.</div>
-  <button id="checkbtn-q4" onclick="checkGuided('q4', 'Compound vs. Simple Comparison', 'calc-block', 'How much more did Jasmine earn with compound interest than with simple interest, and why does that gap exist even with the same rate and time?')" disabled>Check my answer</button><span class="check-count zero" id="count-q4">Checked 0 times — required for completion</span>
-  <div class="helper-panel" id="feedback-q4" style="display:none;"></div>
+  <button id="checkbtn-q6" onclick="checkGuided('q6', 'Jasmine Compound vs. Simple Chart', null, 'What does Jasmine gain by choosing the compound-interest online savings account by year 4, and what is the trade-off if she needs the money back urgently in month 7, before meaningful growth has occurred either way?')" disabled>Check my answer</button><span class="check-count zero" id="count-q6">Checked 0 times — required for completion</span>
+  <div class="helper-panel" id="feedback-q6" style="display:none;"></div>
 </div>
 
-<!-- ============ VOCABULARY QUIZ ============ -->
+<div class="guided-block">
+  <div class="guided-question">Q7 (multi-part). Now imagine Jasmine knew for certain she wouldn't touch the money for a full 4 years. Would the size of the compound-vs-simple gap change your recommendation? Why does time horizon matter so much when compound interest is involved?</div>
+  <textarea class="small" id="answer-q7" placeholder="Your answer..."></textarea>
+  <div class="try-first-note">Try your own answer first — the check button unlocks after a few sentences.</div>
+  <button id="checkbtn-q7" onclick="checkGuided('q7', 'Jasmine Compound vs. Simple Chart', null, 'Does the student explain why a longer, certain time horizon strengthens the case for the compound-interest account, connecting time horizon to the size of the compound-vs-simple gap?')" disabled>Check my answer</button><span class="check-count zero" id="count-q7">Checked 0 times — required for completion</span>
+  <div class="helper-panel" id="feedback-q7" style="display:none;"></div>
+</div>
+
+<!-- ============ SECTION 4: VOCABULARY CHECK ============ -->
+<div class="section-tag">SECTION 4</div>
 <h2>Vocabulary Check</h2>
-<p style="font-family:Arial, sans-serif; font-size:0.9rem; color:#555;">Match each term to its definition using the dropdowns. This is a self-check — it doesn't affect your completion status, but your score is saved so your teacher can see how the class is doing.</p>
+<p style="font-family:Arial, sans-serif; font-size:0.9rem; color:#555;">Match each term to its definition using the dropdowns. You can change any answer and check again as many times as you want — this is a self-check for your own learning, and it doesn't affect your completion status.</p>
+<div class="retry-note">Tip: fix only the pink rows, then check again — you don't have to redo the rows you already got right.</div>
 <div id="quiz-container"></div>
 <button onclick="checkQuiz()">Check my matches</button>
-<div id="quiz-score"></div>
+<button onclick="resetQuiz()">Reset all</button>
+<div class="quiz-score" id="quiz-score"></div>
 
-<!-- ============ MAIN ANALYSIS ============ -->
-<h2>Your Analysis</h2>
-<p style="font-family:Arial, sans-serif; font-size:0.9rem; color:#555;">Which account type should Jasmine choose, and why? Use at least 4 of the vocabulary words below, and explain what she gives up and what she gains with your recommendation.</p>
+<!-- ============ SECTION 5: YOUR ANALYSIS — GRADUATION GIFT ============ -->
+<div class="section-tag">SECTION 5</div>
+<h2>Your Analysis: The Graduation Gift</h2>
+<p style="font-family:Arial, sans-serif; font-size:0.9rem; color:#555;">
+  Suppose you just graduated and received a <strong>$5,000 gift</strong> from a family member. Decide:
+  (1) would you put this in a checking or savings account? (2) If savings, which type — regular, online,
+  money market, or CD? (3) Justify your answer using specific criteria (interest rate, liquidity, minimum
+  balance, insurance) and at least 4 vocabulary words below.
+</p>
+<div class="calc-link-box">
+  Want to play with the numbers first? Try the SEC's free
+  <a href="https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator" target="_blank" rel="noopener">Compound Interest Calculator</a>
+  — you can test different rates and time spans to see how your $5,000 could grow.
+</div>
 <div class="vocab-checklist" id="vocab-checklist"></div>
 <div class="vocab-status" id="vocab-status"></div>
 <div class="vocab-definition" id="vocab-definition"></div>
-<textarea class="big" id="main-response" placeholder="Write your recommendation for Jasmine here..."></textarea>
+<textarea class="big" id="main-response" placeholder="Write your decision and justification here..."></textarea>
 <div class="try-first-note">Try your own answer first — the check button unlocks after a few sentences.</div>
 <button id="checkbtn-analysis" onclick="checkAnalysis()" disabled>Check my reasoning</button><span class="check-count zero" id="count-analysis">Checked 0 times — required for completion</span>
 <div class="helper-panel" id="feedback-analysis" style="display:none;"></div>
@@ -315,11 +399,18 @@ then needing it early.
 // ============================================================
 // CONFIG
 // ============================================================
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwWNrnmwgk7ec4-Pp8AeCpACmi6UtzoJZi9ajhSf8yFYfx8amOx5u2VDztrkGgKefLN/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxtIQs5S-lUdTWOOv7qgjzi1nhImmbcKkVyeOO-J5pzAfVvsszGfmD08M9OobFYzUM/exec';
 const SHARED_SECRET = '4a0933e08edea57eafbbf303'; // must match Code.gs exactly
 const MAX_CHECK_ATTEMPTS = 3;
 
-const GUIDED_KEYS = ['q1', 'q2', 'q3', 'q4'];
+const GUIDED_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'analysis'];
+
+const ACCOUNT_TYPES = [
+  { id: 'A', label: 'Traditional / Regular Savings' },
+  { id: 'B', label: 'Online Savings' },
+  { id: 'C', label: 'Money Market Account' },
+  { id: 'D', label: 'Certificate of Deposit (CD)' }
+];
 
 const VOCAB_LIST = [
   { term: 'compound interest', label: 'Compound Interest', definition: 'Interest calculated on a balance that already includes previously earned interest — not just the original deposit.' },
@@ -335,11 +426,9 @@ const VOCAB_REQUIRED = Math.ceil(VOCAB_LIST.length * 0.5);
 
 let struggleLevels = {};
 let guidedAttempts = {};
-let calcAttempts = { compound: 0, simple: 0 };
 let lastQuizScore = null;
-let aiInteractionCount = 0;
-let lastServerChecklist = null;
-let lastServerComplete = null;
+let rankingSubmitted = false;
+let matchingEverAllCorrect = false;
 
 // ---------- Vocabulary checklist (for the Analysis box) ----------
 function renderVocabChecklist(usedTerms) {
@@ -385,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// ---------- Vocabulary matching quiz ----------
+// ---------- Shuffle helper ----------
 function shuffle(arr) {
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--) {
@@ -395,6 +484,69 @@ function shuffle(arr) {
   return a;
 }
 
+// ---------- Account-naming matching ----------
+function renderMatching() {
+  const container = document.getElementById('matching-container');
+  container.innerHTML = '';
+  const shuffledLabels = shuffle(ACCOUNT_TYPES.map((v, i) => ({ idx: i, label: v.label })));
+  ACCOUNT_TYPES.forEach((acc, idx) => {
+    const row = document.createElement('div');
+    row.className = 'quiz-row';
+    row.id = 'match-row-' + idx;
+    const label = document.createElement('label');
+    label.className = 'term';
+    label.textContent = 'Account ' + acc.id;
+    row.appendChild(label);
+    const select = document.createElement('select');
+    select.id = 'match-select-' + idx;
+    const blank = document.createElement('option');
+    blank.value = '';
+    blank.textContent = '-- choose the account name --';
+    select.appendChild(blank);
+    shuffledLabels.forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d.idx;
+      opt.textContent = d.label;
+      select.appendChild(opt);
+    });
+    row.appendChild(select);
+    container.appendChild(row);
+  });
+}
+document.addEventListener('DOMContentLoaded', renderMatching);
+
+function getMatchingSelections() {
+  const sel = {};
+  ACCOUNT_TYPES.forEach((acc, idx) => {
+    const el = document.getElementById('match-select-' + idx);
+    sel['Account_' + acc.id] = el ? el.value : '';
+  });
+  return sel;
+}
+
+function checkMatching() {
+  let correct = 0;
+  ACCOUNT_TYPES.forEach((acc, idx) => {
+    const select = document.getElementById('match-select-' + idx);
+    const row = document.getElementById('match-row-' + idx);
+    row.classList.remove('correct', 'incorrect');
+    if (select.value === '') return;
+    if (parseInt(select.value, 10) === idx) {
+      correct++;
+      row.classList.add('correct');
+    } else {
+      row.classList.add('incorrect');
+    }
+  });
+  document.getElementById('matching-score').textContent =
+    'Score: ' + correct + ' / ' + ACCOUNT_TYPES.length + ' — change any pink row and check again.';
+  if (correct === ACCOUNT_TYPES.length) {
+    matchingEverAllCorrect = true;
+  }
+  scheduleAutoSave();
+}
+
+// ---------- Vocabulary matching quiz ----------
 function renderQuiz() {
   const container = document.getElementById('quiz-container');
   container.innerHTML = '';
@@ -428,7 +580,6 @@ function renderQuiz() {
     container.appendChild(row);
   });
 }
-
 document.addEventListener('DOMContentLoaded', renderQuiz);
 
 function checkQuiz() {
@@ -448,29 +599,14 @@ function checkQuiz() {
   });
   lastQuizScore = correct;
   document.getElementById('quiz-score').textContent =
-    'Score: ' + correct + ' / ' + VOCAB_LIST.length + ' — green rows are correct, pink rows need another look.';
+    'Score: ' + correct + ' / ' + VOCAB_LIST.length + ' — green rows are correct, pink rows need another look. Change any answer and check again.';
   scheduleAutoSave();
 }
 
-function updateCheckCountBadge(elId, count) {
-  const badge = document.getElementById(elId);
-  if (!badge) return;
-  if (count >= 1) {
-    badge.textContent = 'Checked ' + count + ' time' + (count === 1 ? '' : 's') + ' \u2713';
-    badge.classList.remove('zero');
-  } else {
-    badge.textContent = 'Checked 0 times — required for completion';
-    badge.classList.add('zero');
-  }
+function resetQuiz() {
+  renderQuiz();
+  document.getElementById('quiz-score').textContent = '';
 }
-
-function refreshAllCheckBadges() {
-  GUIDED_KEYS.forEach(k => updateCheckCountBadge('count-' + k, guidedAttempts[k] || 0));
-  updateCheckCountBadge('count-analysis', guidedAttempts['analysis'] || 0);
-  updateCheckCountBadge('count-calc-compound', calcAttempts.compound || 0);
-  updateCheckCountBadge('count-calc-simple', calcAttempts.simple || 0);
-}
-document.addEventListener('DOMContentLoaded', refreshAllCheckBadges);
 
 // ---------- "Try first" enforcement ----------
 function wireTryFirst(inputId, buttonId, minChars) {
@@ -482,17 +618,15 @@ function wireTryFirst(inputId, buttonId, minChars) {
   input.addEventListener('input', update);
 }
 document.addEventListener('DOMContentLoaded', () => {
-  wireTryFirst('answer-q1', 'checkbtn-q1', 15);
-  wireTryFirst('answer-q2', 'checkbtn-q2', 15);
-  wireTryFirst('answer-q3', 'checkbtn-q3', 15);
-  wireTryFirst('answer-q4', 'checkbtn-q4', 15);
-  wireTryFirst('main-response', 'checkbtn-analysis', 40);
-  wireTryFirst('calc-compound-answer', 'checkbtn-calc-compound', 1);
-  wireTryFirst('calc-simple-answer', 'checkbtn-calc-simple', 1);
+  GUIDED_KEYS.forEach(k => {
+    const inputId = k === 'analysis' ? 'main-response' : 'answer-' + k;
+    const btnId = k === 'analysis' ? 'checkbtn-analysis' : 'checkbtn-' + k;
+    wireTryFirst(inputId, btnId, k === 'analysis' ? 40 : 15);
+  });
 });
 
 // ---------- Paste blocking on all free-write boxes ----------
-['main-response', 'opening-write', 'closing-write', 'answer-q1', 'answer-q2', 'answer-q3', 'answer-q4', 'calc-work'].forEach(id => {
+['main-response', 'opening-write', 'closing-write', 'answer-q1', 'answer-q2', 'answer-q3', 'answer-q4', 'answer-q5', 'answer-q6', 'answer-q7'].forEach(id => {
   document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById(id);
     if (!el) return;
@@ -520,13 +654,13 @@ document.addEventListener('DOMContentLoaded', () => {
 function applyHighlight(color) {
   const sel = window.getSelection();
   if (!sel || sel.rangeCount === 0 || sel.toString().trim() === '') {
-    alert('Select some text in the document first.');
+    alert('Select some text in one of the boxes first.');
     return;
   }
   const anchorNode = sel.anchorNode;
   const container = anchorNode && anchorNode.nodeType === 3 ? anchorNode.parentElement : anchorNode;
   const validParent = container && container.closest('.source-text[contenteditable="true"]');
-  if (!validParent) { alert('Select text inside one of the documents above.'); return; }
+  if (!validParent) { alert('Select text inside one of the boxes above.'); return; }
 
   if (color === null) {
     document.execCommand('hiliteColor', false, 'transparent');
@@ -535,14 +669,6 @@ function applyHighlight(color) {
     document.execCommand('hiliteColor', false, cssColor);
   }
   scheduleAutoSave();
-}
-
-function countHighlights() {
-  let total = 0;
-  document.querySelectorAll('.source-text[contenteditable="true"]').forEach(el => {
-    total += (el.innerHTML.match(/background-color/g) || []).length;
-  });
-  return total;
 }
 
 function collectHighlights() {
@@ -557,6 +683,81 @@ function restoreHighlights(map) {
     const el = document.getElementById(id);
     if (el) el.innerHTML = map[id];
   });
+}
+
+// ---------- Ranking: drag-and-drop + move buttons ----------
+const rankList = document.getElementById('rank-list');
+
+function getDragAfterElement(container, y) {
+  const els = [...container.querySelectorAll('.rank-card:not(.dragging)')];
+  return els.reduce((closest, child) => {
+    const box = child.getBoundingClientRect();
+    const offset = y - box.top - box.height / 2;
+    if (offset < 0 && offset > closest.offset) {
+      return { offset: offset, element: child };
+    }
+    return closest;
+  }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
+function updatePositionBadges() {
+  const cards = [...rankList.querySelectorAll('.rank-card')];
+  cards.forEach((card, i) => {
+    const id = card.id.replace('rank-card-', '');
+    const badge = document.getElementById('pos-' + id);
+    if (badge) badge.textContent = 'Position ' + (i + 1);
+  });
+}
+
+function getRankingOrder() {
+  return [...rankList.querySelectorAll('.rank-card')].map(c => c.id.replace('rank-card-', ''));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.rank-handle').forEach(handle => {
+    handle.addEventListener('dragstart', e => {
+      const card = handle.closest('.rank-card');
+      card.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    handle.addEventListener('dragend', () => {
+      handle.closest('.rank-card').classList.remove('dragging');
+      updatePositionBadges();
+      scheduleAutoSave();
+    });
+  });
+  rankList.addEventListener('dragover', e => {
+    e.preventDefault();
+    const dragging = rankList.querySelector('.rank-card.dragging');
+    if (!dragging) return;
+    const afterElement = getDragAfterElement(rankList, e.clientY);
+    if (afterElement == null) {
+      rankList.appendChild(dragging);
+    } else {
+      rankList.insertBefore(dragging, afterElement);
+    }
+  });
+  updatePositionBadges();
+});
+
+function moveCard(id, direction) {
+  const card = document.getElementById('rank-card-' + id);
+  if (!card) return;
+  if (direction === -1 && card.previousElementSibling) {
+    rankList.insertBefore(card, card.previousElementSibling);
+  } else if (direction === 1 && card.nextElementSibling) {
+    rankList.insertBefore(card.nextElementSibling, card);
+  }
+  updatePositionBadges();
+  scheduleAutoSave();
+}
+
+function submitRanking() {
+  rankingSubmitted = true;
+  const badge = document.getElementById('rank-status');
+  badge.textContent = 'Ranking submitted \u2713 (order: ' + getRankingOrder().join(' \u2192 ') + ')';
+  badge.classList.remove('zero');
+  scheduleAutoSave();
 }
 
 // ============================================================
@@ -598,38 +799,28 @@ async function callBackend(action, extra, opts) {
   return null;
 }
 
-async function askHelp(docId, docLabel, questionInputId, panelId, struggleKey) {
-  const questionInput = document.getElementById(questionInputId);
-  const question = questionInput.value.trim();
-  if (!question) { alert('Type your question first.'); return; }
-
-  const panel = document.getElementById(panelId);
-  const attemptsSoFar = struggleLevels[struggleKey] || 0;
-  if (attemptsSoFar >= MAX_CHECK_ATTEMPTS) {
-    panel.style.display = 'block';
-    panel.innerHTML = "You've asked a few times on this — go with your best understanding and move on. Flag it for your teacher if you're still stuck.";
-    return;
+function updateCheckCountBadge(elId, count) {
+  const badge = document.getElementById(elId);
+  if (!badge) return;
+  if (count >= 1) {
+    badge.textContent = 'Checked ' + count + ' time' + (count === 1 ? '' : 's') + ' \u2713';
+    badge.classList.remove('zero');
+  } else {
+    badge.textContent = 'Checked 0 times — required for completion';
+    badge.classList.add('zero');
   }
-  struggleLevels[struggleKey] = attemptsSoFar + 1;
-  panel.style.display = 'block';
-  panel.innerHTML = '<span class="locked">Thinking...</span>';
-
-  const fullText = document.getElementById(docId).innerText;
-
-  aiInteractionCount++;
-  const data = await callBackend('decode_help', {
-    documentLabel: docLabel,
-    passageText: fullText.slice(0, 3000),
-    studentQuestion: question,
-    struggleLevel: struggleLevels[struggleKey]
-  });
-  if (!data) { panel.style.display = 'none'; return; }
-  panel.innerHTML = data.reply || data.error || 'No response.';
 }
 
+function refreshAllCheckBadges() {
+  GUIDED_KEYS.forEach(k => updateCheckCountBadge('count-' + k, guidedAttempts[k] || 0));
+}
+document.addEventListener('DOMContentLoaded', refreshAllCheckBadges);
+
 async function checkGuided(key, partLabel, passageElId, questionText) {
-  const answerEl = document.getElementById('answer-' + key);
-  const panel = document.getElementById('feedback-' + key);
+  const inputId = key === 'analysis' ? 'main-response' : 'answer-' + key;
+  const panelId = key === 'analysis' ? 'feedback-analysis' : 'feedback-' + key;
+  const answerEl = document.getElementById(inputId);
+  const panel = document.getElementById(panelId);
   const answer = answerEl.value.trim();
   if (!answer) { alert('Write your answer first.'); return; }
 
@@ -644,10 +835,9 @@ async function checkGuided(key, partLabel, passageElId, questionText) {
   panel.style.display = 'block';
   panel.innerHTML = '<span class="locked">Thinking...</span>';
 
-  const passageEl = document.getElementById(passageElId);
+  const passageEl = passageElId ? document.getElementById(passageElId) : null;
   const passageText = passageEl ? passageEl.innerText.slice(0, 3000) : 'N/A — see question context.';
 
-  aiInteractionCount++;
   const data = await callBackend('guided_check', {
     partLabel: partLabel, passageText: passageText, questionText: questionText,
     studentAnswer: answer, attemptNumber: guidedAttempts[key]
@@ -656,160 +846,24 @@ async function checkGuided(key, partLabel, passageElId, questionText) {
   panel.innerHTML = data.reply || data.error || 'No response.';
 }
 
-async function checkAnalysis() {
-  const answer = document.getElementById('main-response').value.trim();
-  const panel = document.getElementById('feedback-analysis');
-  if (!answer) { alert('Write something in your Analysis box first.'); return; }
-
-  const attemptsSoFar = guidedAttempts['analysis'] || 0;
-  if (attemptsSoFar >= MAX_CHECK_ATTEMPTS) {
-    panel.style.display = 'block';
-    panel.innerHTML = "You've checked this a few times — trust your draft and move toward your closing write. Flag it for your teacher if you're still unsure.";
-    return;
-  }
-  guidedAttempts['analysis'] = attemptsSoFar + 1;
-  updateCheckCountBadge('count-analysis', guidedAttempts['analysis']);
-  panel.style.display = 'block';
-  panel.innerHTML = '<span class="locked">Thinking...</span>';
-
-  aiInteractionCount++;
-  const data = await callBackend('guided_check', {
-    partLabel: 'Overall Analysis (draft in progress)',
-    passageText: "N/A — this is feedback on the student's own developing reasoning, not a source excerpt.",
-    questionText: 'Does the response name a specific account type for Jasmine, justify it using at least one real criterion (rate, liquidity, minimum balance, or insurance), and name a concrete trade-off (what she gives up vs. gains)?',
-    studentAnswer: answer,
-    attemptNumber: guidedAttempts['analysis']
-  });
-  if (!data) { panel.style.display = 'none'; return; }
-  panel.innerHTML = data.reply || data.error || 'No response.';
-}
-
-// ---------- Step-by-step compound check (local, instant, unlimited) ----------
-function checkSteps() {
-  const principal = 1000, rate = 0.04;
-  const correct = [
-    principal * Math.pow(1 + rate, 1),
-    principal * Math.pow(1 + rate, 2),
-    principal * Math.pow(1 + rate, 3)
-  ];
-  [1, 2, 3].forEach((yr, i) => {
-    const input = document.getElementById('step-year' + yr);
-    const status = document.getElementById('status-year' + yr);
-    const val = parseFloat(input.value);
-    if (isNaN(val)) { status.textContent = '—'; status.className = 'step-status pending'; return; }
-    if (Math.abs(val - correct[i]) < 0.5) {
-      status.textContent = '\u2713 Correct';
-      status.className = 'step-status ok';
-    } else {
-      status.textContent = 'Check this year';
-      status.className = 'step-status no';
-    }
-  });
-  scheduleAutoSave();
-}
-
-// ---------- CALC CHECK (compound or simple) ----------
-async function checkCalc(task) {
-  const answerEl = document.getElementById('calc-' + task + '-answer');
-  const workEl = document.getElementById('calc-work');
-  const panel = document.getElementById('feedback-calc-' + task);
-  const val = answerEl.value;
-  if (val === '') { alert('Enter your answer first.'); return; }
-
-  if (calcAttempts[task] >= MAX_CHECK_ATTEMPTS) {
-    panel.style.display = 'block';
-    panel.innerHTML = "You've checked this a few times — go with your best answer and move on. Flag it for your teacher if you're still unsure.";
-    return;
-  }
-  calcAttempts[task] += 1;
-  updateCheckCountBadge('count-calc-' + task, calcAttempts[task]);
-  panel.style.display = 'block';
-  panel.innerHTML = '<span class="locked">Checking...</span>';
-
-  aiInteractionCount++;
-  const data = await callBackend('calc_check', {
-    calcTask: task,
-    taskLabel: task === 'compound' ? "Jasmine's 3-year compound interest projection" : "Jasmine's 3-year simple interest comparison",
-    studentWork: workEl.value.trim(),
-    studentAnswer: val,
-    attemptNumber: calcAttempts[task]
-  });
-  if (!data) { panel.style.display = 'none'; return; }
-  panel.innerHTML = (data.correct ? '<span class="calc-result correct">\u2713 Correct. </span>' : '<span class="calc-result incorrect">Not quite yet. </span>') +
-    (data.reply || '');
-  scheduleAutoSave();
+function checkAnalysis() {
+  return checkGuided('analysis', 'Graduation Gift Analysis (draft in progress)', null,
+    'Does the response decide checking vs. savings, name a specific savings account type if applicable, and justify the choice using at least one real criterion (rate, liquidity, minimum balance, or insurance)?');
 }
 
 function getGuidedAnswers() {
   const answers = {};
   GUIDED_KEYS.forEach(k => {
-    const el = document.getElementById('answer-' + k);
+    const el = document.getElementById(k === 'analysis' ? 'main-response' : 'answer-' + k);
     if (el) answers[k] = el.value;
   });
   return answers;
 }
 
-function countGuidedAnswers() {
-  return GUIDED_KEYS.filter(k => {
-    const el = document.getElementById('answer-' + k);
-    return el && el.value.trim().length > 5;
-  }).length;
-}
-
-function getStepAnswers() {
-  return {
-    year1: document.getElementById('step-year1').value,
-    year2: document.getElementById('step-year2').value,
-    year3: document.getElementById('step-year3').value
-  };
-}
-
-// ---------- Completion percentage (mirrors the backend's checklist) ----------
-function computeCompletionChecklist() {
-  if (lastServerChecklist) {
-    const c = lastServerChecklist;
-    const items = {
-      'Opening reflection written': !!c.hasOpeningWrite,
-      'Closing reflection written': !!c.hasClosingWrite,
-      'Vocabulary usage (4+ terms)': !!c.vocabMet,
-      'Q1 checked with AI': !!c.q1Checked,
-      'Q2 checked with AI': !!c.q2Checked,
-      'Q3 checked with AI': !!c.q3Checked,
-      'Q4 checked with AI': !!c.q4Checked,
-      'Analysis checked with AI': !!c.analysisChecked,
-      'Compound interest answer checked with AI': !!c.compoundChecked,
-      'Simple interest answer checked with AI': !!c.simpleChecked
-    };
-    const completedCount = Object.values(items).filter(Boolean).length;
-    const total = Object.keys(items).length;
-    return { percent: Math.round(100 * completedCount / total), completedCount, total, items, source: 'submitted' };
-  }
-  // Not yet submitted — estimate live from the current page state.
-  const hasOpeningWrite = document.getElementById('opening-write').value.trim().length > 10;
-  const hasClosingWrite = document.getElementById('closing-write').value.trim().length > 10;
-  const vocabMet = getUsedVocab().length >= VOCAB_REQUIRED;
-  const items = {
-    'Opening reflection written': hasOpeningWrite,
-    'Closing reflection written': hasClosingWrite,
-    'Vocabulary usage (4+ terms)': vocabMet,
-    'Q1 checked with AI': (guidedAttempts.q1 || 0) >= 1,
-    'Q2 checked with AI': (guidedAttempts.q2 || 0) >= 1,
-    'Q3 checked with AI': (guidedAttempts.q3 || 0) >= 1,
-    'Q4 checked with AI': (guidedAttempts.q4 || 0) >= 1,
-    'Analysis checked with AI': (guidedAttempts.analysis || 0) >= 1,
-    'Compound interest answer checked with AI': (calcAttempts.compound || 0) >= 1,
-    'Simple interest answer checked with AI': (calcAttempts.simple || 0) >= 1
-  };
-  const completedCount = Object.values(items).filter(Boolean).length;
-  const total = Object.keys(items).length;
-  return { percent: Math.round(100 * completedCount / total), completedCount, total, items, source: 'estimated' };
-}
-
 let saveTimer = null;
 function scheduleAutoSave() { clearTimeout(saveTimer); saveTimer = setTimeout(saveState, 4000); }
 
-['opening-write', 'closing-write', 'main-response', 'answer-q1', 'answer-q2', 'answer-q3', 'answer-q4',
- 'calc-compound-answer', 'calc-simple-answer', 'calc-work', 'step-year1', 'step-year2', 'step-year3'].forEach(id => {
+['opening-write', 'closing-write', 'main-response', 'answer-q1', 'answer-q2', 'answer-q3', 'answer-q4', 'answer-q5', 'answer-q6', 'answer-q7'].forEach(id => {
   document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById(id);
     if (el) el.addEventListener('input', scheduleAutoSave);
@@ -828,18 +882,13 @@ function collectState() {
     closingWrite: document.getElementById('closing-write').value,
     mainResponse: document.getElementById('main-response').value,
     highlights: collectHighlights(),
-    highlightCount: countHighlights(),
     guidedAnswers: getGuidedAnswers(),
-    guidedAnswersCount: countGuidedAnswers(),
-    guidedAnswersTotal: GUIDED_KEYS.length,
-    stepAnswers: getStepAnswers(),
-    calcCompoundAnswer: document.getElementById('calc-compound-answer').value,
-    calcSimpleAnswer: document.getElementById('calc-simple-answer').value,
-    calcWork: document.getElementById('calc-work').value,
-    vocabQuizScore: lastQuizScore,
-    aiInteractionCount: aiInteractionCount,
     guidedAttempts: guidedAttempts,
-    calcAttempts: calcAttempts,
+    rankingOrder: getRankingOrder(),
+    rankingSubmitted: rankingSubmitted,
+    matchingSelections: getMatchingSelections(),
+    matchingEverAllCorrect: matchingEverAllCorrect,
+    vocabQuizScore: lastQuizScore,
     vocabUsed: getUsedVocab(),
     vocabList: VOCAB_LIST.map(v => v.term)
   };
@@ -857,29 +906,41 @@ async function loadState() {
   restoreHighlights(data.highlights);
 
   const ga = data.guidedAnswers || {};
-  GUIDED_KEYS.forEach(k => { const el = document.getElementById('answer-' + k); if (el && ga[k]) el.value = ga[k]; });
+  GUIDED_KEYS.forEach(k => {
+    if (k === 'analysis') return;
+    const el = document.getElementById('answer-' + k);
+    if (el && ga[k]) el.value = ga[k];
+  });
 
-  const sa = data.stepAnswers || {};
-  if (sa.year1) document.getElementById('step-year1').value = sa.year1;
-  if (sa.year2) document.getElementById('step-year2').value = sa.year2;
-  if (sa.year3) document.getElementById('step-year3').value = sa.year3;
+  if (data.guidedAttempts) { guidedAttempts = data.guidedAttempts; }
+  refreshAllCheckBadges();
 
-  if (data.calcCompoundAnswer !== undefined && data.calcCompoundAnswer !== '') document.getElementById('calc-compound-answer').value = data.calcCompoundAnswer;
-  if (data.calcSimpleAnswer !== undefined && data.calcSimpleAnswer !== '') document.getElementById('calc-simple-answer').value = data.calcSimpleAnswer;
-  if (data.calcWork) document.getElementById('calc-work').value = data.calcWork;
+  if (Array.isArray(data.rankingOrder) && data.rankingOrder.length === 4) {
+    data.rankingOrder.forEach(id => {
+      const card = document.getElementById('rank-card-' + id);
+      if (card) rankList.appendChild(card);
+    });
+    updatePositionBadges();
+  }
+  if (data.rankingSubmitted) {
+    rankingSubmitted = true;
+    const badge = document.getElementById('rank-status');
+    badge.textContent = 'Ranking submitted \u2713 (order: ' + getRankingOrder().join(' \u2192 ') + ')';
+    badge.classList.remove('zero');
+  }
+
+  if (data.matchingSelections) {
+    ACCOUNT_TYPES.forEach((acc, idx) => {
+      const val = data.matchingSelections['Account_' + acc.id];
+      const el = document.getElementById('match-select-' + idx);
+      if (el && val !== undefined && val !== '') el.value = val;
+    });
+  }
+  if (data.matchingEverAllCorrect) { matchingEverAllCorrect = true; }
+
   if (data.vocabQuizScore !== undefined && data.vocabQuizScore !== '') {
     lastQuizScore = data.vocabQuizScore;
     document.getElementById('quiz-score').textContent = 'Score (last saved): ' + data.vocabQuizScore + ' / ' + VOCAB_LIST.length;
-  }
-  if (data.aiInteractionCount !== undefined && data.aiInteractionCount !== '') {
-    aiInteractionCount = parseInt(data.aiInteractionCount, 10) || 0;
-  }
-  if (data.guidedAttempts) { guidedAttempts = data.guidedAttempts; }
-  if (data.calcAttempts) { calcAttempts = data.calcAttempts; }
-  refreshAllCheckBadges();
-  if (data.complete !== undefined) {
-    lastServerComplete = data.complete;
-    lastServerChecklist = data.checklist || null;
   }
 
   renderVocabChecklist(getUsedVocab());
@@ -901,24 +962,23 @@ async function submitWork() {
   if (!data) { area.innerHTML = ''; return; }
   if (data.error) { area.innerHTML = '<div class="completion-box incomplete">' + data.error + '</div>'; return; }
 
-  lastServerChecklist = data.checklist || null;
-  lastServerComplete = data.complete;
-
   const cls = data.complete ? 'pass' : 'incomplete';
   const heading = data.complete ? 'Complete — nice work today.' : 'Not quite complete yet';
   let checklistHtml = '';
   if (!data.complete && data.checklist) {
+    const c = data.checklist;
     checklistHtml = '<ul>';
-    if (!data.checklist.hasOpeningWrite) checklistHtml += '<li>Add your opening reflection.</li>';
-    if (!data.checklist.hasClosingWrite) checklistHtml += '<li>Add your closing reflection.</li>';
-    if (!data.checklist.vocabMet) checklistHtml += '<li>Use at least ' + data.checklist.vocabRequired + ' vocabulary words (currently ' + data.checklist.vocabCount + ').</li>';
-    if (!data.checklist.q1Checked) checklistHtml += '<li>Click "Check my answer" on Q1 at least once.</li>';
-    if (!data.checklist.q2Checked) checklistHtml += '<li>Click "Check my answer" on Q2 at least once.</li>';
-    if (!data.checklist.q3Checked) checklistHtml += '<li>Click "Check my answer" on Q3 at least once.</li>';
-    if (!data.checklist.q4Checked) checklistHtml += '<li>Click "Check my answer" on Q4 at least once.</li>';
-    if (!data.checklist.analysisChecked) checklistHtml += '<li>Click "Check my reasoning" on your Analysis at least once.</li>';
-    if (!data.checklist.compoundChecked) checklistHtml += '<li>Click "Check my compound answer" at least once.</li>';
-    if (!data.checklist.simpleChecked) checklistHtml += '<li>Click "Check my simple-interest answer" at least once.</li>';
+    if (!c.hasOpeningWrite) checklistHtml += '<li>Add your opening reflection.</li>';
+    if (!c.hasClosingWrite) checklistHtml += '<li>Add your closing reflection.</li>';
+    if (!c.vocabMet) checklistHtml += '<li>Use at least ' + c.vocabRequired + ' vocabulary words in your Analysis (currently ' + c.vocabCount + ').</li>';
+    if (!c.rankingSubmitted) checklistHtml += '<li>Drag the four accounts into a ranking and click "Lock in my ranking."</li>';
+    if (!c.matchingEverAllCorrect) checklistHtml += '<li>Get all 4 account names correct at least once in "Now Name Them."</li>';
+    ['q1','q2','q3','q4','q5','q6','q7','analysis'].forEach(k => {
+      if (!c[k]) {
+        const label = k === 'analysis' ? 'Your Analysis' : 'Q' + k.slice(1);
+        checklistHtml += '<li>Click "Check my answer" on ' + label + ' at least once.</li>';
+      }
+    });
     checklistHtml += '</ul>';
   }
 
@@ -927,9 +987,9 @@ async function submitWork() {
     const c1 = data.mockRubric.criterion1, c2 = data.mockRubric.criterion2;
     mockHtml = '<div class="mock-banner"><strong>Practice score preview</strong> — this is practice feedback on your reasoning, not your official grade.</div>' +
       '<div class="mock-cards">' +
-        '<div class="mock-card"><h4>Account Selection Reasoning</h4><div class="range">' + (c1 ? c1.range : 'N/A') + '</div><div>' + (c1 ? c1.feedback : '') + '</div>' +
+        '<div class="mock-card"><h4>Understanding of Compound Growth</h4><div class="range">' + (c1 ? c1.range : 'N/A') + '</div><div>' + (c1 ? c1.feedback : '') + '</div>' +
           '<div class="improve"><strong>Next step:</strong> ' + (c1 ? c1.improve : '') + '</div></div>' +
-        '<div class="mock-card"><h4>Use of Vocabulary & Evidence</h4><div class="range">' + (c2 ? c2.range : 'N/A') + '</div><div>' + (c2 ? c2.feedback : '') + '</div>' +
+        '<div class="mock-card"><h4>Account Selection &amp; Justification</h4><div class="range">' + (c2 ? c2.range : 'N/A') + '</div><div>' + (c2 ? c2.feedback : '') + '</div>' +
           '<div class="improve"><strong>Next step:</strong> ' + (c2 ? c2.improve : '') + '</div></div>' +
       '</div>';
   } else if (data.feedbackGenerated === false) {
@@ -944,50 +1004,43 @@ function downloadWork() {
   const esc = s => (s || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const studentId = document.getElementById('student-id').value.trim() || '(no name entered)';
   const now = new Date().toLocaleString();
-  const completion = computeCompletionChecklist();
 
   const html = `
     <h1>Choosing the Right Savings Account — ${esc(studentId)}</h1>
     <div class="p-label">Printed: ${now}</div>
 
-    <div class="p-doc" style="border-left-color: ${completion.percent >= 100 ? '#4a8f52' : '#c98a2c'};">
-      <strong>Completion: ${completion.percent}% (${completion.completedCount} of ${completion.total} required items)</strong>
-      ${completion.source === 'estimated' ? ' — estimated from current work; not yet submitted for official completion check.' : ' — based on last submitted check.'}
-      <ul style="margin:8px 0 0 0; padding-left:18px; font-size:0.85rem;">
-        ${Object.entries(completion.items).map(([label, done]) => '<li>' + (done ? '\u2713 ' : '\u2717 ') + esc(label) + '</li>').join('')}
-      </ul>
-    </div>
-    <div class="p-label">AI Tool Interactions: ${aiInteractionCount} (Socratic help / guided-answer checks / calculation checks combined)</div>
-
     <h2>Opening reflection</h2>
     <div class="p-block">${esc(val('opening-write')) || '(not yet written)'}</div>
 
-    <h2>Savings Account Comparison Chart (with your highlights)</h2>
-    <div class="p-doc">${document.getElementById('doc-1').innerHTML}</div>
+    <h2>Account Ranking</h2>
+    <div class="p-block">Order (most accessible \u2192 highest rate/locked): ${getRankingOrder().join(' \u2192 ')} ${rankingSubmitted ? '(submitted)' : '(not yet submitted)'}</div>
     <div class="p-label">Q1 — your answer</div>
     <div class="p-block">${esc(val('answer-q1')) || '(not yet answered)'}</div>
 
-    <h2>Simple vs. Compound Interest</h2>
+    <h2>Account Naming</h2>
+    <div class="p-block">${document.getElementById('matching-score').textContent || '(not yet checked)'}</div>
+
+    <h2>Understanding Compound Interest</h2>
     <div class="p-label">Q2 — your answer</div>
     <div class="p-block">${esc(val('answer-q2')) || '(not yet answered)'}</div>
+    <div class="p-label">Q3 — your answer</div>
+    <div class="p-block">${esc(val('answer-q3')) || '(not yet answered)'}</div>
+    <div class="p-label">Q4 — your answer</div>
+    <div class="p-block">${esc(val('answer-q4')) || '(not yet answered)'}</div>
 
     <h2>Jasmine's Decision</h2>
     <div class="p-doc">${document.getElementById('doc-2').innerHTML}</div>
-    <div class="p-label">Q3 — your answer</div>
-    <div class="p-block">${esc(val('answer-q3')) || '(not yet answered)'}</div>
-
-    <h2>Project Jasmine's Growth</h2>
-    <div class="p-block">Step-by-step: Year 1 = ${esc(val('step-year1')) || '—'}, Year 2 = ${esc(val('step-year2')) || '—'}, Year 3 = ${esc(val('step-year3')) || '—'}<br>
-    Work shown: ${esc(val('calc-work')) || '(none shown)'}<br>
-    Final compound answer: ${esc(val('calc-compound-answer')) || '(not yet entered)'}<br>
-    Simple interest comparison answer: ${esc(val('calc-simple-answer')) || '(not yet entered)'}</div>
-    <div class="p-label">Q4 — your answer</div>
-    <div class="p-block">${esc(val('answer-q4')) || '(not yet answered)'}</div>
+    <div class="p-label">Q5 — your answer</div>
+    <div class="p-block">${esc(val('answer-q5')) || '(not yet answered)'}</div>
+    <div class="p-label">Q6 — your answer</div>
+    <div class="p-block">${esc(val('answer-q6')) || '(not yet answered)'}</div>
+    <div class="p-label">Q7 — your answer</div>
+    <div class="p-block">${esc(val('answer-q7')) || '(not yet answered)'}</div>
 
     <h2>Vocabulary Check</h2>
     <div class="p-block">${lastQuizScore !== null ? ('Score: ' + lastQuizScore + ' / ' + VOCAB_LIST.length) : '(not yet checked)'}</div>
 
-    <h2>Your Analysis</h2>
+    <h2>Your Analysis: The Graduation Gift</h2>
     <div class="p-label">Vocabulary used: ${(getUsedVocab().map(t => VOCAB_LIST.find(v => v.term === t).label).join(', ')) || 'none yet'}</div>
     <div class="p-block">${esc(val('main-response')) || '(not yet written)'}</div>
 
