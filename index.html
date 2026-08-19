@@ -64,6 +64,8 @@
   .completion-box.pass { background: #e4f4e6; border-left: 4px solid var(--green-strong); }
   .completion-box.incomplete { background: #fdf1e4; border-left: 4px solid #c98a2c; }
   .completion-box ul { margin: 6px 0 0 0; padding-left: 18px; font-size: 0.85rem; }
+  .completion-percent { background: var(--panel); border-left: 4px solid var(--accent); padding: 12px 16px; margin-top: 10px; border-radius: 4px; font-family: Arial, sans-serif; font-size: 0.9rem; }
+  .completion-percent ul { margin: 8px 0 0 0; padding-left: 18px; font-size: 0.84rem; columns: 2; column-gap: 20px; }
 
   .mock-banner { background: #eef1fb; border-left: 4px solid var(--accent); padding: 10px 16px; font-family: Arial, sans-serif; font-size: 0.85rem; margin: 16px 0 10px 0; }
   .mock-cards { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -145,9 +147,10 @@
 <!-- ============ SECTION 1: RANK & NAME THE ACCOUNTS ============ -->
 <div class="section-tag">SECTION 1 &middot; MATCHES: "OPEN THE HTML — RANK &amp; NAME THE ACCOUNTS"</div>
 <h2>Rank the Four Mystery Accounts</h2>
-<p style="font-family:Arial, sans-serif; font-size:0.9rem;">Drag each box by its handle (or use the ▲▼ buttons) to rank them from <strong>most accessible</strong> (top) to <strong>highest rate / most locked away</strong> (bottom). Select any text inside a box and click a highlight color first, if it helps you think.</p>
-<button class="highlight-btn green" onclick="applyHighlight('green')">Highlight: More Access</button>
-<button class="highlight-btn red" onclick="applyHighlight('red')">Highlight: Higher Rate / Less Access</button>
+<p style="font-family:Arial, sans-serif; font-size:0.9rem;">Drag each box by its handle (or use the ▲▼ buttons) to rank them: at the top, put the account that's <strong>easiest to get your money back out of</strong>. At the bottom, put the account that <strong>earns you the most interest in return</strong> — even if that means your money is harder to get to.</p>
+<p style="font-family:Arial, sans-serif; font-size:0.88rem; color:#555;"><strong>Before you can lock in your ranking:</strong> select text in <em>every</em> box and highlight it — green for anything that tells you how easy the money is to access, red for anything that tells you how much interest you'd earn. This isn't optional; you need at least one highlight in all four boxes.</p>
+<button class="highlight-btn green" onclick="applyHighlight('green')">Highlight: Easy to Access</button>
+<button class="highlight-btn red" onclick="applyHighlight('red')">Highlight: Earns More Interest</button>
 <button onclick="applyHighlight(null)">Clear highlight</button>
 
 <div class="rank-list" id="rank-list">
@@ -240,6 +243,9 @@
 </div>
 
 <h3>Now Name Them</h3>
+<p style="font-family:Arial, sans-serif; font-size:0.85rem; color:#555;">Not sure what one of these means? Click it for a quick summary.</p>
+<div class="vocab-checklist" id="acctdef-chips"></div>
+<div class="vocab-definition" id="acctdef-definition"></div>
 <p style="font-family:Arial, sans-serif; font-size:0.9rem;">Match each account to its real name. You can change your answers and check again as many times as you like — getting all four correct at least once is what counts toward completion.</p>
 <div id="matching-container"></div>
 <button onclick="checkMatching()">Check my matches</button>
@@ -250,6 +256,7 @@
 <h2>Understanding Compound Interest</h2>
 <div class="explainer-box">
   <p style="margin-top:0;">To actually earn compound interest, your money needs to sit in an account that compounds — meaning interest gets calculated on your whole growing balance, not just what you originally put in. All four account types you just ranked do this.</p>
+  <p><strong>Quick reality check:</strong> almost every savings account you'd actually open pays compound interest. Simple interest is mostly a teaching tool for understanding the math — it's rarely a real choice you'll face at the bank. The real decision you'll make is about the <em>rate of return</em> and <em>how locked-away your money is</em>, not simple vs. compound. We'll dig much deeper into rates of return in the Investing unit.</p>
   <p style="margin-bottom:0;">For money you won't touch for many years, some people also use retirement accounts (like a 401(k) or IRA) or diversified investments like index funds. These aren't FDIC insured and carry more risk than a savings account, but they've historically offered higher average returns over long stretches of time — which is exactly why starting early matters so much.</p>
 </div>
 
@@ -315,32 +322,34 @@ then needing it early.
   <div class="helper-panel" id="feedback-q5" style="display:none;"></div>
 </div>
 
-<h3>Jasmine's $1,000 Over 4 Years — Online Savings (Compound) vs. Simple Interest</h3>
+<h3>Jasmine's $1,000 Over 4 Years — Basic Savings vs. CD</h3>
 <div class="explainer-box">
+  <p style="margin-top:0;">Both of these accounts pay compound interest — the difference is the rate, and what she gives up to get it.</p>
   <table>
-    <thead><tr><th>Year</th><th>Compound (4% APY)</th><th>Simple (4%)</th></tr></thead>
+    <thead><tr><th>Year</th><th>Basic/Regular Savings (0.40% APY)</th><th>CD (4.50% APY, locked 4 years)</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>$1,040.00</td><td>$1,040.00</td></tr>
-      <tr><td>2</td><td>$1,081.60</td><td>$1,080.00</td></tr>
-      <tr><td>3</td><td>$1,124.86</td><td>$1,120.00</td></tr>
-      <tr><td>4</td><td>$1,169.86</td><td>$1,160.00</td></tr>
+      <tr><td>1</td><td>$1,004.00</td><td>$1,045.00</td></tr>
+      <tr><td>2</td><td>$1,008.02</td><td>$1,092.02</td></tr>
+      <tr><td>3</td><td>$1,012.05</td><td>$1,141.17</td></tr>
+      <tr><td>4</td><td>$1,016.10</td><td>$1,192.52</td></tr>
     </tbody>
   </table>
+  <p style="margin-bottom:0; margin-top:10px;">The Basic Savings account barely grows — about $16 over 4 years. The CD grows nearly $193, but if Jasmine needs that money before the 4 years are up, she pays an early-withdrawal penalty to get it.</p>
 </div>
 
 <div class="guided-block">
-  <div class="guided-question">Q6 (multi-part). If Jasmine chooses the Online Savings account (compound interest) instead of an account that only pays simple interest: what does she gain by year 4? And what would she be giving up if she suddenly needed the money back in month 7 — before either account had grown much at all?</div>
+  <div class="guided-question">Q6 (multi-part). If Jasmine chooses the CD instead of Basic/Regular Savings: what does she gain by year 4? What would she risk if she suddenly needed the money back in month 7 — before either account had grown much at all?</div>
   <textarea class="small" id="answer-q6" placeholder="Your answer..."></textarea>
   <div class="try-first-note">Try your own answer first — the check button unlocks after a few sentences.</div>
-  <button id="checkbtn-q6" onclick="checkGuided('q6', 'Jasmine Compound vs. Simple Chart', null, 'What does Jasmine gain by choosing the compound-interest online savings account by year 4, and what is the trade-off if she needs the money back urgently in month 7, before meaningful growth has occurred either way?')" disabled>Check my answer</button><span class="check-count zero" id="count-q6">Checked 0 times — required for completion</span>
+  <button id="checkbtn-q6" onclick="checkGuided('q6', 'Jasmine Basic Savings vs. CD Chart', null, 'What does Jasmine gain by choosing the CD by year 4, and what does she risk if she needs the money back urgently in month 7, given the CD locks funds and charges an early-withdrawal penalty?')" disabled>Check my answer</button><span class="check-count zero" id="count-q6">Checked 0 times — required for completion</span>
   <div class="helper-panel" id="feedback-q6" style="display:none;"></div>
 </div>
 
 <div class="guided-block">
-  <div class="guided-question">Q7 (multi-part). Now imagine Jasmine knew for certain she wouldn't touch the money for a full 4 years. Would the size of the compound-vs-simple gap change your recommendation? Why does time horizon matter so much when compound interest is involved?</div>
+  <div class="guided-question">Q7 (multi-part). Now imagine Jasmine knew for certain she wouldn't touch the money for a full 4 years. Would that change which account you'd recommend? Why does time horizon matter so much when a CD is one of the options?</div>
   <textarea class="small" id="answer-q7" placeholder="Your answer..."></textarea>
   <div class="try-first-note">Try your own answer first — the check button unlocks after a few sentences.</div>
-  <button id="checkbtn-q7" onclick="checkGuided('q7', 'Jasmine Compound vs. Simple Chart', null, 'Does the student explain why a longer, certain time horizon strengthens the case for the compound-interest account, connecting time horizon to the size of the compound-vs-simple gap?')" disabled>Check my answer</button><span class="check-count zero" id="count-q7">Checked 0 times — required for completion</span>
+  <button id="checkbtn-q7" onclick="checkGuided('q7', 'Jasmine Basic Savings vs. CD Chart', null, 'Does the student explain why a certain, longer time horizon strengthens the case for the CD, connecting time horizon to the CD lock-up term and penalty risk?')" disabled>Check my answer</button><span class="check-count zero" id="count-q7">Checked 0 times — required for completion</span>
   <div class="helper-panel" id="feedback-q7" style="display:none;"></div>
 </div>
 
@@ -406,10 +415,10 @@ const MAX_CHECK_ATTEMPTS = 3;
 const GUIDED_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'analysis'];
 
 const ACCOUNT_TYPES = [
-  { id: 'A', label: 'Traditional / Regular Savings' },
-  { id: 'B', label: 'Online Savings' },
-  { id: 'C', label: 'Money Market Account' },
-  { id: 'D', label: 'Certificate of Deposit (CD)' }
+  { id: 'A', label: 'Traditional / Regular Savings', definition: 'A basic savings account, usually opened at a physical bank branch. Low interest, but easy in-person or ATM access.' },
+  { id: 'B', label: 'Online Savings', definition: 'A savings account managed entirely through an app or website — usually a noticeably better interest rate than a basic branch account, with no physical branch.' },
+  { id: 'C', label: 'Money Market Account', definition: 'A savings account that pays a bit more interest in exchange for a higher minimum balance and some limits on how often you can withdraw.' },
+  { id: 'D', label: 'Certificate of Deposit (CD)', definition: 'A fixed-term account that pays the highest interest rate of the four — in exchange, your money is locked away for that term, and pulling it out early costs a penalty.' }
 ];
 
 const VOCAB_LIST = [
@@ -429,6 +438,37 @@ let guidedAttempts = {};
 let lastQuizScore = null;
 let rankingSubmitted = false;
 let matchingEverAllCorrect = false;
+let lastServerChecklist = null;
+
+// ---------- Completion percentage (mirrors the backend's checklist) ----------
+function computeCompletionChecklist() {
+  const items = {};
+  const guidedLabel = (k) => k === 'analysis' ? 'Your Analysis checked with AI' : ('Q' + k.slice(1) + ' checked with AI');
+
+  if (lastServerChecklist) {
+    const c = lastServerChecklist;
+    items['Opening reflection written'] = !!c.hasOpeningWrite;
+    items['Closing reflection written'] = !!c.hasClosingWrite;
+    items['Vocabulary usage (4+ terms)'] = !!c.vocabMet;
+    items['Ranking submitted (with highlights)'] = !!c.rankingSubmitted;
+    items['Account names all correct'] = !!c.matchingEverAllCorrect;
+    GUIDED_KEYS.forEach(k => { items[guidedLabel(k)] = !!c[k]; });
+  } else {
+    items['Opening reflection written'] = document.getElementById('opening-write').value.trim().length > 10;
+    items['Closing reflection written'] = document.getElementById('closing-write').value.trim().length > 10;
+    items['Vocabulary usage (4+ terms)'] = getUsedVocab().length >= VOCAB_REQUIRED;
+    items['Ranking submitted (with highlights)'] = rankingSubmitted;
+    items['Account names all correct'] = matchingEverAllCorrect;
+    GUIDED_KEYS.forEach(k => { items[guidedLabel(k)] = (guidedAttempts[k] || 0) >= 1; });
+  }
+
+  const completedCount = Object.values(items).filter(Boolean).length;
+  const total = Object.keys(items).length;
+  return {
+    percent: Math.round(100 * completedCount / total), completedCount, total, items,
+    source: lastServerChecklist ? 'submitted' : 'estimated'
+  };
+}
 
 // ---------- Vocabulary checklist (for the Analysis box) ----------
 function renderVocabChecklist(usedTerms) {
@@ -483,6 +523,36 @@ function shuffle(arr) {
   }
   return a;
 }
+
+// ---------- Account-type definition chips (quick reference, not tied to A/B/C/D matching) ----------
+function renderAcctDefChips() {
+  const container = document.getElementById('acctdef-chips');
+  container.innerHTML = '';
+  ACCOUNT_TYPES.forEach(v => {
+    const chip = document.createElement('span');
+    chip.className = 'vocab-chip';
+    chip.textContent = v.label;
+    chip.setAttribute('role', 'button');
+    chip.setAttribute('tabindex', '0');
+    chip.onclick = () => showAcctDefinition(v.label);
+    chip.onkeypress = (e) => { if (e.key === 'Enter' || e.key === ' ') showAcctDefinition(v.label); };
+    container.appendChild(chip);
+  });
+}
+function showAcctDefinition(label) {
+  const box = document.getElementById('acctdef-definition');
+  const entry = ACCOUNT_TYPES.find(v => v.label === label);
+  if (!entry) return;
+  if (box.classList.contains('show') && box.dataset.label === label) {
+    box.classList.remove('show');
+    box.dataset.label = '';
+    return;
+  }
+  box.innerHTML = '<strong>' + entry.label + ':</strong> ' + entry.definition;
+  box.dataset.label = label;
+  box.classList.add('show');
+}
+document.addEventListener('DOMContentLoaded', renderAcctDefChips);
 
 // ---------- Account-naming matching ----------
 function renderMatching() {
@@ -753,6 +823,12 @@ function moveCard(id, direction) {
 }
 
 function submitRanking() {
+  const boxes = ['A', 'B', 'C', 'D'];
+  const missing = boxes.filter(id => !document.getElementById('rank-body-' + id).innerHTML.includes('background-color'));
+  if (missing.length > 0) {
+    alert('Highlight at least one part of Account ' + missing.join(' and Account ') + ' before you can lock in your ranking. Select text in the box, then click a highlight color.');
+    return;
+  }
   rankingSubmitted = true;
   const badge = document.getElementById('rank-status');
   badge.textContent = 'Ranking submitted \u2713 (order: ' + getRankingOrder().join(' \u2192 ') + ')';
@@ -962,25 +1038,15 @@ async function submitWork() {
   if (!data) { area.innerHTML = ''; return; }
   if (data.error) { area.innerHTML = '<div class="completion-box incomplete">' + data.error + '</div>'; return; }
 
+  lastServerChecklist = data.checklist || null;
+  const completion = computeCompletionChecklist();
+
   const cls = data.complete ? 'pass' : 'incomplete';
   const heading = data.complete ? 'Complete — nice work today.' : 'Not quite complete yet';
-  let checklistHtml = '';
-  if (!data.complete && data.checklist) {
-    const c = data.checklist;
-    checklistHtml = '<ul>';
-    if (!c.hasOpeningWrite) checklistHtml += '<li>Add your opening reflection.</li>';
-    if (!c.hasClosingWrite) checklistHtml += '<li>Add your closing reflection.</li>';
-    if (!c.vocabMet) checklistHtml += '<li>Use at least ' + c.vocabRequired + ' vocabulary words in your Analysis (currently ' + c.vocabCount + ').</li>';
-    if (!c.rankingSubmitted) checklistHtml += '<li>Drag the four accounts into a ranking and click "Lock in my ranking."</li>';
-    if (!c.matchingEverAllCorrect) checklistHtml += '<li>Get all 4 account names correct at least once in "Now Name Them."</li>';
-    ['q1','q2','q3','q4','q5','q6','q7','analysis'].forEach(k => {
-      if (!c[k]) {
-        const label = k === 'analysis' ? 'Your Analysis' : 'Q' + k.slice(1);
-        checklistHtml += '<li>Click "Check my answer" on ' + label + ' at least once.</li>';
-      }
-    });
-    checklistHtml += '</ul>';
-  }
+  const percentHtml = '<div class="completion-percent"><strong>Completion: ' + completion.percent + '%</strong> (' +
+    completion.completedCount + ' of ' + completion.total + ' required items)' +
+    '<ul>' + Object.entries(completion.items).map(([label, done]) =>
+      '<li>' + (done ? '\u2713 ' : '\u2717 ') + label + '</li>').join('') + '</ul></div>';
 
   let mockHtml = '';
   if (data.mockRubric) {
@@ -996,7 +1062,7 @@ async function submitWork() {
     mockHtml = '<div class="mock-banner">Practice preview unavailable right now — your completion status above is still recorded.</div>';
   }
 
-  area.innerHTML = '<div class="completion-box ' + cls + '"><strong>' + heading + '</strong>' + checklistHtml + '</div>' + mockHtml;
+  area.innerHTML = '<div class="completion-box ' + cls + '"><strong>' + heading + '</strong></div>' + percentHtml + mockHtml;
 }
 
 function downloadWork() {
@@ -1004,10 +1070,19 @@ function downloadWork() {
   const esc = s => (s || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const studentId = document.getElementById('student-id').value.trim() || '(no name entered)';
   const now = new Date().toLocaleString();
+  const completion = computeCompletionChecklist();
 
   const html = `
     <h1>Choosing the Right Savings Account — ${esc(studentId)}</h1>
     <div class="p-label">Printed: ${now}</div>
+
+    <div class="p-doc" style="border-left-color: ${completion.percent >= 100 ? '#4a8f52' : '#c98a2c'};">
+      <strong>Completion: ${completion.percent}% (${completion.completedCount} of ${completion.total} required items)</strong>
+      ${completion.source === 'estimated' ? ' — estimated from current work; not yet submitted for official completion check.' : ' — based on last submitted check.'}
+      <ul style="margin:8px 0 0 0; padding-left:18px; font-size:0.85rem;">
+        ${Object.entries(completion.items).map(([label, done]) => '<li>' + (done ? '\u2713 ' : '\u2717 ') + esc(label) + '</li>').join('')}
+      </ul>
+    </div>
 
     <h2>Opening reflection</h2>
     <div class="p-block">${esc(val('opening-write')) || '(not yet written)'}</div>
